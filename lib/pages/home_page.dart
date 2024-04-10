@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:vytrvej/pages/information_page.dart';
 import 'package:vytrvej/pages/progress_page.dart';
+import 'package:vytrvej/widgets/features/homepage/sober_clock.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,10 +16,9 @@ class _HomePageState extends State<HomePage> {
     const ProgressPage(),
     const HomeScreen(),
     const InformationPage(),
-    
   ];
 
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   void _navigateBottomBar(int index) {
     setState(() {
@@ -48,11 +48,96 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: const Column(
-      children: [
-        Text('Home Screen'),
-      ],
-    ));
+    double deviceWidth = MediaQuery.of(context).size.width;
+    double deviceHeight = MediaQuery.of(context).size.height;
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(8, 40, 8, 8),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            //First Row
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      //Avatar
+                      Container(
+                        width: deviceWidth * 0.45,
+                        height: deviceHeight * 0.1,
+                        color: Colors.deepPurple[400],
+                      ),
+                      SizedBox(
+                        height: deviceHeight * 0.01,
+                      ),
+                      //Sober Clock
+                      SizedBox(
+                        width: deviceWidth * 0.45,
+                        height: deviceHeight * 0.2,
+                        child: const SoberClock(),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      //Calendar
+                      Container(
+                        width: deviceWidth * 0.45,
+                        height: deviceHeight * 0.31,
+                        color: Colors.deepPurple[400],
+                        
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+              child: Container(
+                width: deviceWidth,
+                height: deviceHeight * 0.1,
+                color: Colors.deepPurple[400],
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: deviceWidth * 0.45,
+                    height: deviceHeight * 0.2,
+                    color: Colors.deepPurple[400],
+                  ),
+                  Container(
+                    width: deviceWidth * 0.45,
+                    height: deviceHeight * 0.2,
+                    color: Colors.deepPurple[400],
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+                child: Container(
+                  width: deviceWidth,
+                  height: deviceHeight * 0.2,
+                  color: Colors.deepPurple[400],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
