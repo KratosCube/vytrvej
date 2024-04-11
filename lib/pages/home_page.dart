@@ -4,6 +4,7 @@ import 'package:vytrvej/pages/information_page.dart';
 import 'package:vytrvej/pages/progress_page.dart';
 import 'package:vytrvej/utils/constants.dart';
 import 'package:vytrvej/widgets/features/homepage/mood_graph.dart';
+import 'package:vytrvej/widgets/features/homepage/piggy_bank.dart';
 import 'package:vytrvej/widgets/features/homepage/sober_clock.dart';
 
 class HomePage extends StatefulWidget {
@@ -100,15 +101,15 @@ class HomeScreen extends StatelessWidget {
             ),
             //Second Row
             Padding(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.fromLTRB(0,8,0,8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   //Saved Money
-                  Container(
+                  SizedBox(
                     width: deviceWidth * 0.45,
                     height: deviceHeight * 0.15,
-                    color: Colors.deepPurple[400],
+                    child: const PiggyBank(),
                   ),
                   //Sober Button
                   Container(
