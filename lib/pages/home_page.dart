@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:vytrvej/pages/information_page.dart';
 import 'package:vytrvej/pages/progress_page.dart';
+import 'package:vytrvej/utils/constants.dart';
+import 'package:vytrvej/widgets/features/homepage/mood_graph.dart';
 import 'package:vytrvej/widgets/features/homepage/sober_clock.dart';
 
 class HomePage extends StatefulWidget {
@@ -48,11 +50,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double deviceWidth = MediaQuery.of(context).size.width;
-    double deviceHeight = MediaQuery.of(context).size.height;
+    deviceWidth = MediaQuery.of(context).size.width;
+    deviceHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(8, 40, 8, 8),
+        padding: const EdgeInsets.fromLTRB(16, 40, 16, 8),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -67,7 +69,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       //Avatar
                       Container(
-                        width: deviceWidth * 0.45,
+                        width: deviceWidth * 0.40,
                         height: deviceHeight * 0.1,
                         color: Colors.deepPurple[400],
                       ),
@@ -76,7 +78,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       //Sober Clock
                       SizedBox(
-                        width: deviceWidth * 0.45,
+                        width: deviceWidth * 0.40,
                         height: deviceHeight * 0.2,
                         child: const SoberClock(),
                       ),
@@ -90,49 +92,48 @@ class HomeScreen extends StatelessWidget {
                         width: deviceWidth * 0.45,
                         height: deviceHeight * 0.31,
                         color: Colors.deepPurple[400],
-                        
                       ),
                     ],
                   ),
                 ],
               ),
             ),
-
+            //Second Row
             Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
-              child: Container(
-                width: deviceWidth,
-                height: deviceHeight * 0.1,
-                color: Colors.deepPurple[400],
-              ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 8.0),
+              padding: const EdgeInsets.all(8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  //Saved Money
                   Container(
                     width: deviceWidth * 0.45,
-                    height: deviceHeight * 0.2,
+                    height: deviceHeight * 0.15,
                     color: Colors.deepPurple[400],
                   ),
+                  //Sober Button
                   Container(
-                    width: deviceWidth * 0.45,
-                    height: deviceHeight * 0.2,
+                    width: deviceWidth * 0.40,
+                    height: deviceHeight * 0.15,
                     color: Colors.deepPurple[400],
                   ),
                 ],
               ),
             ),
+            //Mood Graph
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
-                child: Container(
-                  width: deviceWidth,
-                  height: deviceHeight * 0.2,
-                  color: Colors.deepPurple[400],
-                ),
+              child: SizedBox(
+                width: deviceWidth,
+                height: deviceHeight * 0.2,
+                child: const MoodGraph(),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+              child: Container(
+              
+                width: deviceWidth,
+                height: deviceHeight * 0.08,
+                color: Colors.deepPurple[400],
               ),
             ),
           ],
