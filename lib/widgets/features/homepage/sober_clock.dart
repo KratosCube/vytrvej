@@ -1,22 +1,11 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:vytrvej/utils/constants.dart';
 
 class SoberClock extends StatelessWidget {
   SoberClock({super.key});
 
-  final int _days = 48;
-
-  final int _hours = 3;
-
-  final int _minutes = 55;
-
-  final int _seconds = 23;
-
-  String dateTimeString = "2024-04-13 12:00:00";
+  final String dateTimeString = "2024-04-13 12:00:00";
   final List<ChartData> chartDaysData = [
     ChartData(6, const Color.fromARGB(255, 56, 27, 159)),
   ];
