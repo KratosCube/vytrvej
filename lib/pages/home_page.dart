@@ -61,12 +61,12 @@ class HomeScreen extends StatelessWidget {
           children: [
             //First Row
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.fromLTRB(0,8,0,8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       //Avatar
                       Container(
@@ -79,9 +79,9 @@ class HomeScreen extends StatelessWidget {
                       ),
                       //Sober Clock
                       SizedBox(
-                        width: deviceWidth * 0.40,
+                        width: deviceWidth * 0.45,
                         height: deviceHeight * 0.2,
-                        child: const SoberClock(),
+                        child: SoberClock(),
                       ),
                     ],
                   ),
